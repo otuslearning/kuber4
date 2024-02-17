@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: {{ .Values.application.namespace }}
+  name: "{{ .Values.application.name }}-ing"
+  annotations:
+    nginx.ingress.kubernetes.io/auth-url: "http://auth-service-svc.development.svc.cluster.local/api/auth"
+    nginx.ingress.kubernetes.io/auth-method: "POST"
+    nginx.ingress.kubernetes.io/auth-response-headers: "X-Account-Id"
+spec:
+  rules:
+    - host: {{ .Values.host.name }}
+      http:
+        paths:
+          - path: /api/user
+            pathType: Prefix
+            backend:
+              service:
+                name: "{{ .Values.application.name }}-svc"
+                port:
+                  number: 80

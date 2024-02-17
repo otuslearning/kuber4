@@ -1,0 +1,12 @@
+config:
+  name: database-auth-service
+secret:
+  name: auth-service-password
+job:
+  name: create-database-auth
+  labels: create-auth-db
+postgres:
+  password: J2F1dGhfc2VydmljZV9wYXNzd29yZCc=
+application:
+  namespace: development
+  password: YXV0aF9zZXJ2aWNlX3Bhc3N3b3Jk

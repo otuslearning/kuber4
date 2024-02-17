@@ -1,0 +1,20 @@
+host:
+  name: arch.homework
+application:
+  namespace: development
+  name: auth-service
+  label: auth-service
+  service:
+    port: 80
+  container:
+    port: 8080
+    env:
+      - key: DB_HOST
+        value: database-postgresql
+      - key: DB_NAME
+        value: auth_db
+      - key: DB_USERNAME
+        value: auth_service
+  replicaCount: 2
+  image:
+    repository: otuslearning/auth-service:0.0.1
