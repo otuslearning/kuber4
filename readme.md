@@ -28,6 +28,12 @@ Run postman collections
 ```shell
 newman run --verbose arch.homework.postman_collection.json
 ```
+![image](test1.png)
+![image](test2.png)
+![image](test3.png)
+![image](test4.png)
+![image](test5.png)
+![image](test6.png)
 
 ## Uninstall
 * uninstall apps
