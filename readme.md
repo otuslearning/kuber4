@@ -1,33 +1,22 @@
 # Instruction
 ## Before installation
 Install minikube, start minikube, ingress addon should be enabled
-## Add repositories
-### Add helm repositories
-* nginx-ingress repository
-    ```shell
-    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-    ```
+![image](schema.png)
+
 ## Installation
 ### Install in the following order
-1. install ingress-nginx
-    ```shell
-    helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx --create-namespace -n ingress-nginx
-    ```
-    ```shell
-    minikube addons enable ingress
-    ```
-2. install postgres database
+1. install postgres database
     ```shell
     helm upgrade --install database -f postgres/values.yaml oci://registry-1.docker.io/bitnamicharts/postgresql  --create-namespace -n development
     ```
-3. create database, user and password for application need install job
+2. create database, user and password for application need install job
     ```shell
     helm install user-db ./user-db -n development
     ```
     ```shell
     helm install auth-db ./auth-db -n development
     ```
-4. install apps
+3. install apps
     ```shell
     helm upgrade --install user-service ./user-service -n development
     ```
