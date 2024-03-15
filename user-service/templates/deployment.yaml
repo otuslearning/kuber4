@@ -30,11 +30,11 @@ spec:
                 secretKeyRef:
                   name: user-service-password
                   key: password
-          livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: {{ .Values.application.container.port }}
-          readinessProbe:
-            httpGet:
-              path: /actuator/health
-              port: {{ .Values.application.container.port }}
+{{/*          livenessProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: /actuator/health*/}}
+{{/*              port: {{ .Values.application.container.port }}*/}}
+{{/*          readinessProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: /actuator/health*/}}
+{{/*              port: {{ .Values.application.container.port }}*/}}
